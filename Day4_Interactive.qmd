@@ -6,6 +6,10 @@ execute:
   warning: false
 ---
 
+```{r}
+library(tidyverse)
+```
+
 ## Functions
 
 Make a function that doubles a value
@@ -108,3 +112,51 @@ convert_kelvin <- function(temp_kelvin, temp_type) {
 
 convert_kelvin(temp_kelvin = 0, temp_type = "english")
 ```
+
+## Functions with loops 
+
+create a data frame and then our function is going to return something about a single row in the dataframe = creating a subset within a function and then return based on that subset
+
+```{r}
+# make a data frame
+dog_choice <- data.frame(dog_name = c("Khora", "Teddy", "Waffle", "Banjo", "Tally"), 
+                         food = c("everything", "salmon", "pancakes", "chicken", "enchiladas"))
+```
+
+```{r}
+# making a function
+# filter dog choice data frame where dog name equals the variable for that row, aka only keep waffle
+
+
+dog_menu <- function(enter_dog_name) {
+  dog_subset <- filter(dog_choice, dog_name == enter_dog_name)
+  print(paste("My name is", dog_subset$dog_name, "and my favorite food is", dog_subset$food))
+}
+
+dog_menu(enter_dog_name = "Waffle")
+```
+
+## Function with a for loop
+
+```{r}
+# make a function, iterate along df, calculate mean of each column in the data frame, and accessing column name of each when iterating
+
+df_means <- function(df) {
+  for (i in seq_along(df)) {
+    col_mean <- round(mean(df[[i]], na.rm = TRUE), 2)
+    column_name <- colnames(df[i])
+    print(paste("The mean value of", column_name, "is", col_mean))
+  }
+}
+```
+
+```{r}
+# use df means on mtcars
+df_means(df = mtcars)
+```
+
+```{r}
+df_means(faithful)
+```
+
+## 
