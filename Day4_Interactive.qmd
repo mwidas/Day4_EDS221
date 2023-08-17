@@ -72,3 +72,39 @@ describe_person <- function(age_yr, home_town) {
 
 describe_person(age = 20, home_town = "Pleasanton")
 ```
+
+## Functions with Conditionals
+
+```{r}
+calculate_animal_age <- function(species, age_human) {
+  if (species == "dog") {
+    age_human * 7
+  } else if (species == "goat") {
+    age_human * 4.7
+  } else {
+    print("please enter dog or goat.")
+  }
+}
+```
+
+```{r}
+calculate_animal_age(species = "dog", age_human = 10)
+
+calculate_animal_age(species = "goat", age_human = 4)
+
+calculate_animal_age(species = "whale", age_human = 10)
+```
+
+write a function that, given temp in kelvin, if a user selects "metric", return in celcius, if they select "english" then return in fahrenheit
+
+```{r}
+convert_kelvin <- function(temp_kelvin, temp_type) {
+  if (temp_type == "metric") {
+    temp_kelvin - 273.15
+  } else if (temp_type == "english") {
+    ((temp_kelvin - 273.15) * (9/5)) + 32
+  }
+}
+
+convert_kelvin(temp_kelvin = 0, temp_type = "english")
+```
