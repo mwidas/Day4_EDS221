@@ -1,0 +1,74 @@
+---
+title: "Day4"
+format: html
+editor: visual
+execute: 
+  warning: false
+---
+
+## Functions
+
+Make a function that doubles a value
+
+```{r}
+double_value <- function(my_dollars) {
+  print(2 * my_dollars)
+}
+
+double_value(my_dollars = 10.13)
+# OR, because it is expecting 1 value and you are entering 1 value you do not need to specify
+double_value(10.13)
+```
+
+```{r}
+monthly_income <- c(42.50, 61.75, 89.50)
+# works on a vector
+double_value(monthly_income)
+```
+
+```{r}
+
+double_value2 <- function(dollars) {
+  dollars * 2
+}
+
+double_value2(dollars = 10)
+```
+
+Print statement = "show me"
+
+return statement = "store me"
+
+Create a function that returns a restaurant name given a cool animal and your favorite food
+
+```{r}
+name_restaurant <- function(animal, food) {
+  print(paste0(animal, food))
+}
+
+name_restaurant(animal = "hawk", food = "pizza")
+```
+
+Given a temperature in degrees fahrenheit, write a function that converts it to celcius
+
+```{r}
+convert_fc <- function(temp_f) {
+  print((temp_f - 32) * (5/9))
+}
+
+```
+
+```{r}
+
+convert_fc(temp_f = 52)
+```
+
+Create a function that given inputs of age and hometown returns "I am \_ years old, and Im from \_"
+
+```{r}
+describe_person <- function(age_yr, home_town) {
+  print(paste("I am", age, "years old, and I'm from", home_town))
+}
+
+describe_person(age = 20, home_town = "Pleasanton")
+```
