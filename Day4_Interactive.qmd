@@ -113,7 +113,7 @@ convert_kelvin <- function(temp_kelvin, temp_type) {
 convert_kelvin(temp_kelvin = 0, temp_type = "english")
 ```
 
-## Functions with loops 
+## Functions with loops
 
 create a data frame and then our function is going to return something about a single row in the dataframe = creating a subset within a function and then return based on that subset
 
@@ -159,4 +159,42 @@ df_means(df = mtcars)
 df_means(faithful)
 ```
 
-## 
+## Warnings and Stops
+
+create a function to calculate the Betz limit
+
+air density = kg/m\^3
+
+rotor radius = meters
+
+wind velocity = m/s
+
+power = watts
+
+```{r}
+calculate_betz_windpower <- function(air_density,
+                                     rotor_radius,
+                                     wind_velocity) {
+  if (wind_velocity > 130) {
+    warning("Whoa! That's a pretty high wind speed, are you sure?")
+  } 
+  
+  if (rotor_radius < 0) {
+    stop("Rotor radius must be a positive value in meters")
+  }
+  
+  0.3 * air_density * pi * (rotor_radius ^ 2) * (wind_velocity ^ 3)
+}
+```
+
+```{r}
+calculate_betz_windpower(air_density = 1.2, rotor_radius = 30, wind_velocity = 50)
+```
+
+```{r}
+calculate_betz_windpower(air_density = 1.2, rotor_radius = -30, wind_velocity = 50)
+```
+
+```{r}
+calculate_betz_windpower(air_density = 1, rotor_radius = 20, wind_velocity = 1020)
+```
